@@ -14,27 +14,46 @@ namespace GUI
 {
     public partial class Sign_in : Form
     {
-
-        Account acc = new Account();
-        Account_BLL acc_BLL = new Account_BLL();
-
         public Sign_in()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void Sign_in_Load(object sender, EventArgs e)
+        {
+            tUName.Text = Properties.Settings.Default.username;
+            tUPass.Text = Properties.Settings.Default.password;
+            if (Properties.Settings.Default.username != string.Empty)
+            {
+                ckSaveInfo.Checked = true;
+            }
+        }
         private void bSignin_Click(object sender, EventArgs e)
         {
-            if (tUName.Text == string.Empty || tUPass.Text == string.Empty)
+            if (tUName.Text.Trim() == string.Empty || tUPass.Text.Trim() == string.Empty)
             {
-                // MessageBox.Show("Tên đăng nhập hoặc mật khẩu đang rỗng!");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không được rỗng!");
             } else
             {
-                acc = acc_BLL.CheckLogic(tUName.Text, tUPass.Text);
-
+                Account acc = new Account_BLL().CheckLogin(tUName.Text, tUPass.Text);
                 if (acc != null)
                 {
+                    // Lưu thông tin đăng nhập cho lần tiếp theo
+                    if (ckSaveInfo.Checked)
+                    {
+                        string uname = tUName.Text.Trim();
+                        string upass = tUPass.Text.Trim();
+
+                        Properties.Settings.Default.username = uname;
+                        Properties.Settings.Default.password = upass;
+                        Properties.Settings.Default.Save();
+                    } else
+                    {
+                        Properties.Settings.Default.Reset();
+                    }
+
+                    // Đăng nhập hệ thống
                     new Main_manager(acc).Show();
                     this.Close();
                 }
@@ -45,17 +64,10 @@ namespace GUI
             }
 
         }
-
         private void lbExit_Click(object sender, EventArgs e)
-        {
-            Application.ExitThread();
-        }
-
+            => Application.ExitThread();
         private void lbForgetPass_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Chức năng lấy lại mật khẩu đang bảo trì!", "Hệ thống thông báo");
-        }
-
+            => MessageBox.Show("Chức năng lấy lại mật khẩu đang bảo trì!", "Hệ thống thông báo");
         private void lbAuthor_Click(object sender, EventArgs e)
         {
             string author = "\tKHOA CÔNG NGHỆ THÔNG TIN\t\n\n" +
@@ -64,5 +76,6 @@ namespace GUI
 
             MessageBox.Show(author, "7V_52 | Author");
         }
+
     }
 }

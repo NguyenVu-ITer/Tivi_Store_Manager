@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sign_in));
             this.label1 = new System.Windows.Forms.Label();
             this.tUName = new System.Windows.Forms.TextBox();
             this.tUPass = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lbAuthor = new System.Windows.Forms.Label();
+            this.ckSaveInfo = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -58,7 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 30);
+            this.label1.Location = new System.Drawing.Point(39, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 69);
             this.label1.TabIndex = 0;
@@ -68,7 +70,7 @@
             // tUName
             // 
             this.tUName.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tUName.Location = new System.Drawing.Point(18, 175);
+            this.tUName.Location = new System.Drawing.Point(18, 161);
             this.tUName.Name = "tUName";
             this.tUName.Size = new System.Drawing.Size(318, 28);
             this.tUName.TabIndex = 0;
@@ -76,8 +78,9 @@
             // tUPass
             // 
             this.tUPass.Font = new System.Drawing.Font("Courier New", 10.8F);
-            this.tUPass.Location = new System.Drawing.Point(18, 236);
+            this.tUPass.Location = new System.Drawing.Point(18, 222);
             this.tUPass.Name = "tUPass";
+            this.tUPass.PasswordChar = '•';
             this.tUPass.Size = new System.Drawing.Size(318, 28);
             this.tUPass.TabIndex = 1;
             // 
@@ -85,7 +88,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 155);
+            this.label2.Location = new System.Drawing.Point(18, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 16);
             this.label2.TabIndex = 2;
@@ -95,7 +98,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 217);
+            this.label3.Location = new System.Drawing.Point(18, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 2;
@@ -245,11 +248,22 @@
             this.lbAuthor.Text = "7V_52";
             this.lbAuthor.Click += new System.EventHandler(this.lbAuthor_Click);
             // 
+            // ckSaveInfo
+            // 
+            this.ckSaveInfo.AutoSize = true;
+            this.ckSaveInfo.Location = new System.Drawing.Point(18, 266);
+            this.ckSaveInfo.Name = "ckSaveInfo";
+            this.ckSaveInfo.Size = new System.Drawing.Size(269, 20);
+            this.ckSaveInfo.TabIndex = 8;
+            this.ckSaveInfo.Text = "Lưu thông tin cho lần đăng nhập tiếp theo";
+            this.ckSaveInfo.UseVisualStyleBackColor = true;
+            // 
             // Sign_in
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(356, 486);
+            this.Controls.Add(this.ckSaveInfo);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
@@ -263,8 +277,10 @@
             this.Controls.Add(this.tUName);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Sign_in";
             this.Text = "ĐĂNG NHẬP";
+            this.Load += new System.EventHandler(this.Sign_in_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -294,5 +310,6 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbAuthor;
+        private System.Windows.Forms.CheckBox ckSaveInfo;
     }
 }

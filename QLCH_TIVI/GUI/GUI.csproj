@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +47,31 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\television_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GUI.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +85,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action_AdminTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action_AdminTool.Designer.cs">
+      <DependentUpon>Action_AdminTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Action_StoreTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action_StoreTool.Designer.cs">
+      <DependentUpon>Action_StoreTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Action_TransactionTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action_TransactionTool.Designer.cs">
+      <DependentUpon>Action_TransactionTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,12 +111,54 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLCH_TIVIDataSet.cs">
+      <DependentUpon>QLCH_TIVIDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLCH_TIVIDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLCH_TIVIDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Bill.Designer.cs">
+      <DependentUpon>Report_Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Customer.Designer.cs">
+      <DependentUpon>Report_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report_Staff.Designer.cs">
+      <DependentUpon>Report_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Salary_Up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salary_Up.Designer.cs">
+      <DependentUpon>Salary_Up.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sign_in.Designer.cs">
       <DependentUpon>Sign_in.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Action_AdminTool.resx">
+      <DependentUpon>Action_AdminTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Action_StoreTool.resx">
+      <DependentUpon>Action_StoreTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Action_TransactionTool.resx">
+      <DependentUpon>Action_TransactionTool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main_manager.resx">
       <DependentUpon>Main_manager.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,10 +170,33 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report_Bill.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Bill.resx">
+      <DependentUpon>Report_Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Customer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Customer.resx">
+      <DependentUpon>Report_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Staff.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_Staff.resx">
+      <DependentUpon>Report_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salary_Up.resx">
+      <DependentUpon>Salary_Up.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sign_in.resx">
       <DependentUpon>Sign_in.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +219,47 @@
       <Project>{6f724870-9ca4-4b24-820a-7d640f103170}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QLCH_TIVIDataSet.xsc">
+      <DependentUpon>QLCH_TIVIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLCH_TIVIDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLCH_TIVIDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLCH_TIVIDataSet.xss">
+      <DependentUpon>QLCH_TIVIDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\television_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
